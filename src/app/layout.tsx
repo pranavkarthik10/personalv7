@@ -44,8 +44,8 @@ export const metadata: Metadata = {
 							className="w-full h-full object-cover opacity-10"
 						/>
 					</div>
-					<div className="relative z-10 flex flex-col md:flex-row">
-						<div className="w-full md:w-48 flex-shrink-0 border-r border-dashed p-6">
+					<div className="relative z-10 flex flex-col-reverse md:flex-row">
+						<div className="w-full md:w-48 flex-shrink-0 border-t md:border-t-0 md:border-r border-dashed p-6">
 							<nav className="space-y-4">
 								<Link href="/" className="block text-sm opacity-70 hover:opacity-100">
 									home
@@ -58,6 +58,9 @@ export const metadata: Metadata = {
 								</Link>
 								<Link href="/press" className="block text-sm opacity-70 hover:opacity-100">
 									press
+								</Link>
+								<Link href="/mentions" className="block text-sm opacity-70 hover:opacity-100">
+									mentions
 								</Link>
 								<Link href="/projects" className="block text-sm opacity-70 hover:opacity-100">
 									projects
@@ -74,7 +77,7 @@ export const metadata: Metadata = {
 									x
 								</a>
 								<a
-									href="https://linkedin.com/in/pranavk-karthik"
+									href="https://linkedin.com/in/pranav-karthik"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="block text-sm opacity-40 hover:opacity-70 transition-opacity"

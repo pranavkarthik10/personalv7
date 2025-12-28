@@ -205,26 +205,7 @@ const RESUME = {
 			challenges: "The biggest challenge was implementing reliable Siri integration while maintaining data privacy. I had to carefully design the voice command system to work offline and ensure that sensitive academic data never left the device.",
 			inProgress: false,
 			year: 2019,
-		},
-		{
-			slug: "personal-website",
-			name: "Personal Website",
-			description:
-				"Modern personal website built with Next.js, TypeScript, and Tailwind CSS featuring responsive design and dark mode.",
-			longDescription:
-				"This personal website showcases my portfolio and projects using modern web technologies. Built with Next.js, TypeScript, and Tailwind CSS, it features a responsive design, dark mode support, and optimized performance. The site includes interactive elements and smooth animations to create an engaging user experience.",
-			imagePath: "/personal.png",
-			liveUrl: "https://pranavkarthik.com",
-			githubUrl: "https://github.com/pranavkarthik10/personalv6",
-			stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-			keyFeatures: [
-				"Responsive design for all devices",
-				"Dark mode with smooth transitions",
-				"Optimized performance and SEO",
-			],
-			inProgress: false,
-			year: 2024,
-		},
+		}
 	],
 };
 

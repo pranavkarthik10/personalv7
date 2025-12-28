@@ -63,10 +63,10 @@ export default async function NowPage() {
     const { metadata, content } = page;
 
     return (
-        <main className="px-8 pt-4 pb-24">
+        <main className="px-8 pt-8 border-t border-dashed">
             <article>
                 <header className="mb-8">
-                    <h1 className="text-3xl font-bold mb-2">{metadata.title}</h1>
+                    <h1 className="text-4xl font-medium tracking-tight mb-2">{metadata.title}</h1>
                     {metadata.description && (
                         <p className="text-lg text-muted-foreground mb-4">
                             {metadata.description}
@@ -119,7 +119,7 @@ export default async function NowPage() {
                         }}
                     />
                     {metadata.lastUpdated && (
-                        <p className="text-sm text-muted-foreground mt-12 border-t pt-6">
+                        <p className="text-sm text-muted-foreground mt-8 pt-4">
                             Last updated: {new Date(metadata.lastUpdated).toLocaleDateString('en-US', {
                                 year: 'numeric',
                                 month: 'long',
