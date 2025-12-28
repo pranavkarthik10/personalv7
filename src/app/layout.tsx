@@ -59,9 +59,6 @@ export const metadata: Metadata = {
 								<Link href="/press" className="block text-sm opacity-70 hover:opacity-100">
 									press
 								</Link>
-								<Link href="/mentions" className="block text-sm opacity-70 hover:opacity-100">
-									mentions
-								</Link>
 								<Link href="/projects" className="block text-sm opacity-70 hover:opacity-100">
 									projects
 								</Link>
