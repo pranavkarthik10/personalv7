@@ -1,7 +1,8 @@
 "use client";
 
 import { Newspaper, ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
+import { Tweet } from "react-tweet";
 
 const logoData = [
 	{ name: "OMNI", url: "https://www.omnitv.ca/ab/en/videos/pranav-karthik-coding-prodigy/", logo: "omni-tv.png" },
@@ -15,35 +16,26 @@ const logoData = [
 	{ name: "DailyHive", url: "https://dailyhive.com/vancouver/apple-ceo-tim-cook-shout-out-vancouver-teen", logo: "daily-hive.svg" },
 ];
 
-const tweets = [
-	"1135700109931343872",
-	"1275225681794748416",
-	"1282204149082230784",
-	"1997875261669621787"
+const tweetIds = [
+	"1135700109931343872", // Tim Cook
+	"1275225681794748416", // Craig Federighi
+	"1997875261669621787", // xAI
+	"1282204149082230784", // Phil Schiller
 ];
 
 export default function PressPage() {
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [isHovered, setIsHovered] = useState(false);
+	const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		const script = document.createElement('script');
-		script.src = "https://platform.twitter.com/widgets.js";
-		script.async = true;
-		document.body.appendChild(script);
-	}, []);
-
-	useEffect(() => {
-		if (!isHovered) {
-			const interval = setInterval(() => {
-				setCurrentIndex((prev) => (prev + 1) % tweets.length);
-			}, 6000);
-			return () => clearInterval(interval);
+	const scroll = (direction: "left" | "right") => {
+		if (scrollContainerRef.current) {
+			const scrollAmount = 400;
+			scrollContainerRef.current.scrollBy({
+				left: direction === "left" ? -scrollAmount : scrollAmount,
+				behavior: "smooth",
+			});
 		}
-	}, [isHovered]);
+	};
 
-	const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % tweets.length);
-	const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + tweets.length) % tweets.length);
 	return (
 		<main className="px-8 pt-8 border-t border-dashed">
 			<div>
@@ -56,8 +48,50 @@ export default function PressPage() {
 				</p>
 			</div>
 
-			{/* Press Logos */}
-			<div className="mt-12 p-8 rounded-lg border border-border bg-muted/30">
+			{/* Notable Mentions - Moved to top */}
+			<div className="mt-12 mb-0">
+				<h2 className="text-2xl font-medium tracking-tight mb-0">Notable Mentions</h2>
+				<div className="relative overflow-hidden">
+					{/* Scroll buttons - commented out since there are only 4 tweets */}
+					{/* <button
+						onClick={() => scroll("left")}
+						className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full border border-border bg-background/80 backdrop-blur hover:bg-muted transition-colors shadow-lg"
+						aria-label="Scroll left"
+					>
+						<ChevronLeft size={20} />
+					</button>
+					<button
+						onClick={() => scroll("right")}
+						className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full border border-border bg-background/80 backdrop-blur hover:bg-muted transition-colors shadow-lg"
+						aria-label="Scroll right"
+					>
+						<ChevronRight size={20} />
+					</button> */}
+
+					{/* Scrollable container */}
+					<div
+						ref={scrollContainerRef}
+						className="flex gap-4 overflow-x-scroll overflow-y-hidden scrollbar-hide pr-10 py-4"
+						style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+					>
+						{tweetIds.map((id) => (
+							<div
+								key={id}
+								className="flex-shrink-0 w-[280px] max-w-[280px] [&_.react-tweet-theme]:!bg-white/5 [&_.react-tweet-theme]:!border-border [&_.react-tweet-theme]:rounded-xl [&_.react-tweet-theme]:!text-sm [&_.react-tweet-theme_*]:!text-xs [&_.react-tweet-theme]:!p-3"
+							>
+								<Tweet id={id} />
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			{/* News Section */}
+			<div className="mt-12">
+				<h2 className="text-2xl font-medium tracking-tight mb-6">News</h2>
+				
+				{/* Press Logos */}
+				<div className="p-8 rounded-lg border border-border bg-white/20">
 				<div className="grid grid-cols-2 md:grid-cols-3 gap-8">
 					{logoData.map((item) => (
 						<a
@@ -74,6 +108,7 @@ export default function PressPage() {
 							/>
 						</a>
 					))}
+				</div>
 				</div>
 			</div>
 
@@ -306,62 +341,6 @@ export default function PressPage() {
 						</a>
 					</li>
 				</ul>
-			</div>
-
-			{/* Mentions Section */}
-			<div className="mt-16">
-				<h2 className="text-2xl font-medium tracking-tight mb-8">Notable Mentions</h2>
-				<div className="relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-					<div className="rounded-lg border border-border bg-muted/30 p-8">
-						<div className="flex justify-center items-center min-h-[400px]">
-							{tweets.map((tweetId, index) => (
-								<div
-									key={tweetId}
-									className={`w-full max-w-xl mx-auto ${index === currentIndex ? 'block' : 'hidden'}`}
-								>
-									<blockquote
-										className="twitter-tweet"
-										data-theme="dark"
-										data-dnt="true"
-										data-conversation="none"
-									>
-										<a href={`https://twitter.com/x/status/${tweetId}`}></a>
-									</blockquote>
-								</div>
-							))}
-						</div>
-					</div>
-
-					{/* Navigation arrows */}
-					<button
-						onClick={prevSlide}
-						className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full border border-border bg-background hover:bg-muted transition-colors"
-						aria-label="Previous tweet"
-					>
-						<ChevronLeft size={20} />
-					</button>
-					<button
-						onClick={nextSlide}
-						className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full border border-border bg-background hover:bg-muted transition-colors"
-						aria-label="Next tweet"
-					>
-						<ChevronRight size={20} />
-					</button>
-
-					{/* Dot indicators */}
-					<div className="flex justify-center gap-2 mt-6">
-						{tweets.map((_, index) => (
-							<button
-								key={index}
-								onClick={() => setCurrentIndex(index)}
-								className={`w-2 h-2 rounded-full transition-all ${
-									index === currentIndex ? 'bg-foreground w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-								}`}
-								aria-label={`Go to tweet ${index + 1}`}
-							/>
-						))}
-					</div>
-				</div>
 			</div>
 		</main>
 	);

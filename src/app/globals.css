@@ -154,3 +154,20 @@ body {
 .starry .fill-green-400 { fill: hsl(var(--muted-foreground)/0.6) !important; }
 .starry .fill-green-500 { fill: hsl(var(--muted-foreground)/0.8) !important; }
 }
+
+/* Hide scrollbar for tweet carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* react-tweet dark theme overrides */
+.dark [data-theme="light"],
+.starry [data-theme="light"] {
+  --tweet-bg-color: rgba(255, 255, 255, 0.05) !important;
+  --tweet-bg-color-hover: rgba(255, 255, 255, 0.1) !important;
+  --tweet-border: 1px solid hsl(var(--border)) !important;
+  --tweet-color-text-primary: hsl(var(--foreground)) !important;
+  --tweet-color-text-secondary: hsl(var(--muted-foreground)) !important;
+  --tweet-font-family: inherit !important;
+  color-scheme: dark !important;
+}

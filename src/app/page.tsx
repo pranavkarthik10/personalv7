@@ -1,5 +1,6 @@
 import RESUME from "@/data/resume";
 import NameAnimation from "@/components/name-animation";
+import CompanyLogo from "@/components/company-logo";
 
 export default function Home() {
 	return (
@@ -22,7 +23,11 @@ export default function Home() {
 						<div className="space-y-8">
 							{RESUME.experience.map((experience) => (
 								<div key={`${experience.company}-${experience.start_date}`}>
-									<h3 className="text-lg">{experience.company}</h3>
+									<CompanyLogo
+										icon={experience.icon}
+										company={experience.company}
+										companyWebsite={experience.company_website}
+									/>
 									<p className="mt-1 opacity-70">{experience.role}</p>
 									<p className="mt-2 text-sm opacity-50">
 										{new Date(
@@ -52,7 +57,12 @@ export default function Home() {
 							Education
 						</h2>
 						<div>
-							<h3 className="text-lg">{RESUME.education.institution}</h3>
+							<div className="inline-flex items-center gap-2">
+								<div className="size-5 flex items-center justify-center flex-shrink-0 [&>svg]:w-full [&>svg]:h-full [&>img]:w-full [&>img]:h-full [&>svg]:object-contain [&>img]:object-contain">
+									{RESUME.education.icon}
+								</div>
+								<h3 className="text-lg">{RESUME.education.institution}</h3>
+							</div>
 							<p className="mt-1 opacity-70">
 								{RESUME.education.degree}, {RESUME.education.major}
 							</p>

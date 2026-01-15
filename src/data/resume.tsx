@@ -82,7 +82,7 @@ const RESUME = {
 				<img
 					src="/dyne.png"
 					alt="DYNE logo"
-					style={{ width: 64, height: 64, objectFit: "contain" }}
+					className="w-full h-full object-contain"
 				/>
 			),
 			company: "DYNE",
@@ -103,9 +103,9 @@ const RESUME = {
 		location: "Vancouver, BC",
 		icon: (
 			<img
-				src="/ubc.png"
+				src="/ubclogo.png"
 				alt="UBC logo"
-				style={{ width: 64, height: 64, objectFit: "contain" }}
+				className="w-full h-full object-contain"
 			/>
 		),
 	},
