@@ -100,7 +100,9 @@ export default function BlogPage() {
 									href={`/blog/${post.slug}`}
 									className="block w-full h-full"
 								>
-									<span className="line-clamp-1">{post.title}</span>
+									<span className="block leading-snug break-words">
+										{post.title}
+									</span>
 								</Link>
 							</td>
 							<td className="py-3 px-4 text-sm text-muted-foreground hidden md:table-cell">

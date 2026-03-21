@@ -83,7 +83,14 @@ export default function Home() {
 							Projects
 						</h2>
 						<div className="space-y-6">
-							{RESUME.projects.filter(p => p.slug !== "personal-website").map((project) => (
+							{RESUME.projects
+								.filter(
+									(p) =>
+										p.slug !== "personal-website" &&
+										p.slug !== "lazycal" &&
+										p.slug !== "pdfp",
+								)
+								.map((project) => (
 								<div key={project.name}>
 									<h3 className="text-lg">{project.name}</h3>
 									<p className="mt-2 text-sm opacity-70 leading-relaxed">
@@ -104,7 +111,7 @@ export default function Home() {
 										{project.stack.join(" · ")}
 									</p>
 								</div>
-							))}
+								))}
 						</div>
 					</section>
 				</div>

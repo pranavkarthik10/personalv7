@@ -29,14 +29,16 @@ export default function CompanyLogo({ icon, company, companyWebsite }: CompanyLo
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
 			>
-				<div 
-					className={`flex items-center justify-center flex-shrink-0 [&>svg]:w-full [&>svg]:h-full [&>img]:w-full [&>img]:h-full [&>svg]:object-contain [&>img]:object-contain transition-all duration-300 ease-out ${
-						isHovered 
-							? "size-16 z-50 drop-shadow-[0_0_20px_rgba(255,255,255,0.6)]" 
-							: "size-5"
-					}`}
-				>
-					{icon}
+				<div className="relative size-5 flex-shrink-0">
+					<div
+						className={`absolute inset-0 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>img]:w-full [&>img]:h-full [&>svg]:object-contain [&>img]:object-contain transition-transform duration-300 ease-out origin-center will-change-transform ${
+							isHovered
+								? "scale-[3.2] z-50 drop-shadow-[0_0_20px_rgba(255,255,255,0.6)]"
+								: "scale-100"
+						}`}
+					>
+						{icon}
+					</div>
 				</div>
 				<h3 className={`text-lg transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}>
 					{company}

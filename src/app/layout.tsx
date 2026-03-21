@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 	return (
 		<html lang="en" className="dark">
 			<body
+				suppressHydrationWarning
 				className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono`}
 			>
 				<Script
@@ -44,8 +45,8 @@ export const metadata: Metadata = {
 							className="w-full h-full object-cover opacity-10"
 						/>
 					</div>
-					<div className="relative z-10 flex flex-col-reverse md:flex-row">
-						<div className="w-full md:w-48 flex-shrink-0 border-t md:border-t-0 md:border-r border-dashed p-6">
+					<div className="relative z-10 flex flex-col-reverse md:flex-row max-w-6xl mx-auto">
+						<div className="w-full md:w-48 flex-shrink-0 border-t md:border-t-0 md:border-r border-dashed p-6 md:pt-16">
 							<nav className="space-y-4">
 								<Link href="/" className="block text-sm opacity-70 hover:opacity-100">
 									home

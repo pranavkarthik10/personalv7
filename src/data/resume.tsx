@@ -4,7 +4,7 @@ const RESUME = {
 	name: "Pranav Karthik",
 	avatar_path: "/me.jpg",
 	bio: {
-		intro: "Fourth year CS student at UBC passionate about building experiences for the web, mobile, and spatial interfaces.",
+		intro: "Fourth year Computer Science student at UBC, passionate about building agentic experiences on the web, mobile, and spatial interfaces.",
 		about: "TODO: move bio here",
 	},
 	experience: [
@@ -110,6 +110,49 @@ const RESUME = {
 		),
 	},
 	projects: [
+		{
+			slug: "pdfp",
+			name: "pdfp",
+			description:
+				"Fast PDF compression CLI with an interactive terminal UI, quality presets, and batch processing.",
+			longDescription:
+				"pdfp is a TypeScript CLI tool for compressing PDFs from the terminal using Ghostscript. It provides a clean interactive flow, multiple quality presets, batch processing support, and advanced output controls for balancing file size and quality.",
+			imagePath: "/pdfp.png",
+			githubUrl: "https://github.com/pranavkarthik10/pdfp",
+			stack: ["TypeScript", "Node.js", "Ghostscript", "CLI"],
+			keyFeatures: [
+				"Interactive terminal-first compression workflow",
+				"Multiple compression presets (screen, ebook, printer, prepress)",
+				"Batch processing and quick auto mode",
+				"Advanced options like target size and custom output paths",
+			],
+			challenges:
+				"Building a friendly interactive CLI while handling cross-platform Ghostscript usage and predictable compression results across different PDF inputs.",
+			inProgress: false,
+			year: 2026,
+		},
+		{
+			slug: "lazycal",
+			name: "LazyCal",
+			description:
+				"A beautiful terminal Google Calendar client with day/week/month views, keyboard-first navigation, and optional Google Calendar sync.",
+			longDescription:
+				"LazyCal is a terminal-based Google Calendar interface built with OpenTUI and TypeScript. It supports day, week, and month modes, responsive layouts based on terminal width, a keyboard-help modal, and optional live Google Calendar integration via OAuth.",
+			imagePath: "/lazycal.png",
+			liveUrl: "https://www.npmjs.com/package/lazycal",
+			githubUrl: "https://github.com/pranavkarthik10/lazycal",
+			stack: ["TypeScript", "OpenTUI", "Google Calendar API", "OAuth 2.0"],
+			keyFeatures: [
+				"Day, week, and month calendar views",
+				"Keyboard-first controls and help modal",
+				"Responsive terminal layout and sidebar",
+				"Optional Google Calendar API integration",
+			],
+			challenges:
+				"Designing a rich, resize-aware terminal UI while keeping interactions fast and intuitive across day/week/month modes required careful layout and input handling.",
+			inProgress: false,
+			year: 2026,
+		},
 		{
 			slug: "grokhunt",
 			name: "GrokHunt",
