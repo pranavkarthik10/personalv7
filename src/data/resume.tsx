@@ -111,6 +111,27 @@ const RESUME = {
 	},
 	projects: [
 		{
+			slug: "sim-grab",
+			name: "sim-grab",
+			description:
+				"Streams the iOS Simulator into the browser and exposes the accessibility tree for inspection and agent-ready context.",
+			longDescription:
+				"sim-grab streams the iOS Simulator into the browser, making it accessible from coding agent apps. It also exposes the accessibility tree as an inspector so you can hover, select, and copy rich UI context with labels, roles, frames, ancestor chains, and point-level refinement when the tree is too coarse.",
+			imagePath: "/sim-grab.png",
+			githubUrl: "https://github.com/pranavkarthik10/sim-grab",
+			stack: ["TypeScript", "Next.js", "Swift", "iOS Simulator"],
+			keyFeatures: [
+				"Live browser streaming of a booted iOS Simulator",
+				"Accessibility tree inspection with hover and selection",
+				"Agent-ready context blocks with labels, roles, and frames",
+				"Fallback mock mode for demoing without a simulator bridge",
+			],
+			challenges:
+				"Bridging live simulator video, accessibility data, and browser interaction into one cohesive workflow while keeping the inspector responsive and useful for agents.",
+			inProgress: false,
+			year: 2026,
+		},
+		{
 			slug: "pdfp",
 			name: "pdfp",
 			description:
